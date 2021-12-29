@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Container } from "@mui/material";
+import Navbar from "./components/Navbar";
+import Image from "./components/Image";
+import ImageDesc from "./components/ImageDesc";
+import "./App.css";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import "typeface-kumbh-sans";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Kumbh Sans", "sans-serif"].join(","),
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <Navbar />
+        <Container>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <Image />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <ImageDesc />
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+    </ThemeProvider>
   );
 }
 

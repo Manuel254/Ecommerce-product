@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# Design
+/design
+style-guide.md
+
 # testing
 /coverage
 
